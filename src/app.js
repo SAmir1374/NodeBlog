@@ -1,8 +1,10 @@
 import express from "express";
 import router from "./routers";
 import errorMiddleWare from "./middleWares/error-middleWare";
-import render from "./middleWares/render";
 import path from "path";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 

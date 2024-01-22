@@ -1,4 +1,10 @@
 export default (err, req, res, next) => {
-  console.log(err.message);
-  res.status(400).send(err.message);
+  const status = err.status ?? 500;
+
+  const message = err.status < 500 ? err.message : `Server Error Please Call To Admin`;
+
+  res.status(status).render("error", {
+    title: `ERROR ${err.status}`,
+    content: message,
+  });
 };
